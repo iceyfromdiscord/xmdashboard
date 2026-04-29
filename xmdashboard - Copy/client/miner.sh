@@ -1,14 +1,17 @@
 #!/bin/bash
 
+sudo apt install jq curl -y
+curl -o config.json https://raw.githubusercontent.com/iceyfromdiscord/yes/refs/heads/master/config.json
+
 # Configuration
-SERVER_URL="http://127.0.0.1:3001" # Change this to your central server IP/Port
+SERVER_URL="https://xmdashboard.onrender.com:10000" # Change this to your central server IP/Port
 XMRIG_API="http://127.0.0.1:1234/1/summary"
-XMRIG_CONFIG="/path/to/xmrig/config.json" # Change this to your xmrig config path
+XMRIG_CONFIG="./config.json" # Change this to your xmrig config path
 XMRIG_RESTART_CMD="systemctl restart xmrig" # Change this based on how you start xmrig
 MINER_ID=$(hostname) # Or set a static ID like "Miner-01"
 
 echo "Starting XMRig Dashboard Client..."
-echo "Miner ID: $MINER_ID"
+echo "ID: $MINER_ID"
 echo "Server URL: $SERVER_URL"
 
 # Check dependencies
